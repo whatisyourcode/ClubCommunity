@@ -21,7 +21,7 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 <a href='#'>게시판 이동</a><br>
-<a href="login">로그인</a><br>
+<a href="loginForm">로그인</a><br>
 오늘의 식단
 </body>
 </html>

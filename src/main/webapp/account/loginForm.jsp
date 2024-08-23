@@ -20,5 +20,13 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
+<a href='register'>회원가입</a><br>
+<a href="#">아이디/비밀번호 찾기</a><br>
+<form action="login">
+아이디:<input type="text" name="id"><br>
+비밀번호:<input type="password" name="pw"><br>
+<input type="submit" value="로그인">
+<button onclick="history.back()">이전</button>
+</form>
 </body>
 </html>

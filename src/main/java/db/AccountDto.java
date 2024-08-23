@@ -12,13 +12,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class AccountDto {
-	int account_num;
+	int no;
 	String id;
 	String pw;
 	String name;
-	String birth;
-	String tel;
-	String email;
-	String nickname;
 	String joindate;
 }

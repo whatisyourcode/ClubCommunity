@@ -9,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import service.AccountService;
 
 @WebServlet("/")
 public class MainController extends HttpServlet {
@@ -20,6 +23,7 @@ public class MainController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String view = null;
+        AccountService as = new AccountService();
 
         // URL에서 프로젝트 이름 뒷 부분의 문자열 얻어내기
         String uri = request.getRequestURI();
@@ -28,10 +32,23 @@ public class MainController extends HttpServlet {
         
 
         switch(com) {
-        	case "/login":
-        		view = "login.jsp";
+        	case "/loginForm":
+        		view = "account/loginForm.jsp";
         		break;
-        	case "/loginAction":
+        	case "/login":
+        		String id = request.getParameter("id");
+        		String pw = request.getParameter("pw");
+        		int no = as.login(id, pw);
+        		if(no!=0) {
+        			request.getSession().setAttribute("no", no);
+        			view = "redirect:main";        			
+        		}else {
+        			System.out.println("틀림");	// 대체코드 추가필요
+        			view = "redirect:loginForm";
+        		}
+        		break;
+        	case "/logout":
+        		request.getSession().setAttribute("no", null);
         		view = "redirect:main";
         		break;
         	case "/register":
@@ -44,7 +61,8 @@ public class MainController extends HttpServlet {
         		view = "findAccount.jsp";
         		break;
         	case "/myPage":
-        		view = "myPage.jsp";
+        		view = "account/myPage.jsp";
+        		request.setAttribute("dto", as.selectByNo((int)request.getSession().getAttribute("no")));
         		break;
         	case "/update":
         		break;
