@@ -21,7 +21,12 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 <a href='#'>게시판 이동</a><br>
-<a href="loginForm">로그인</a><br>
+<c:if test="${no==0||no==null }">
+<a href="loginForm">로그인</a></c:if>
+
+<c:if test="${no!=0&&no!=null }">
+<a href="logout">로그아웃</a><br>
+<a href="myPage">마이페이지</a></c:if><br>
 오늘의 식단
 </body>
 </html>

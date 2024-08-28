@@ -21,11 +21,13 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 		
-${dto.no }<br>
-${dto.id }<br>
-${dto.pw }<br>
-${dto.name }<br>
-${dto.joindate }
+번호: ${dto.no }<br>
+아이디: ${dto.id }<br>
+비번: ${dto.pw }<br>
+이름: ${dto.name }<br>
+가입일: ${dto.joindate }<br>
+<button>정보 수정</button>
+<button>이전</button>
 
 </body>
 </html>

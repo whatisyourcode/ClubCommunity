@@ -2,14 +2,12 @@ package com.main.controller;
 
 import java.io.IOException;
 
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import service.AccountService;
 
@@ -22,6 +20,7 @@ public class MainController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset=utf-8");
         String view = null;
         AccountService as = new AccountService();
 
@@ -41,15 +40,15 @@ public class MainController extends HttpServlet {
         		int no = as.login(id, pw);
         		if(no!=0) {
         			request.getSession().setAttribute("no", no);
-        			view = "redirect:main";        			
+        			response.getWriter().print("<script>alert('로그인 성공!');location.href='main';</script>");        		
         		}else {
-        			System.out.println("틀림");	// 대체코드 추가필요
-        			view = "redirect:loginForm";
+        			response.getWriter().print("<script>alert('로그인 실패!');location.href='loginForm';</script>");
+//        			view = "redirect:loginForm";
         		}
         		break;
         	case "/logout":
-        		request.getSession().setAttribute("no", null);
-        		view = "redirect:main";
+        		request.getSession().setAttribute("no", 0);
+        		response.getWriter().print("<script>alert('로그아웃됨.');location.href='main';</script>");
         		break;
         	case "/register":
         		view = "register.jsp";

@@ -22,11 +22,11 @@
 		crossorigin="anonymous"></script>
 <a href='register'>회원가입</a><br>
 <a href="#">아이디/비밀번호 찾기</a><br>
-<form action="login">
+<form action="login" style="display: inline;">
 아이디:<input type="text" name="id"><br>
 비밀번호:<input type="password" name="pw"><br>
 <input type="submit" value="로그인">
-<button onclick="history.back()">이전</button>
 </form>
+<button onclick="location.href='main'">이전</button>
 </body>
 </html>
