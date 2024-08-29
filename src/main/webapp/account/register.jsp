@@ -25,6 +25,6 @@
 비밀번호:<input type="password" name="pw"><br>
 <input type="submit" value="가입">
 </form>
-<button onclick="history.back()">이전</button>
+<button onclick="location.href='main'">이전</button>
 </body>
 </html>
