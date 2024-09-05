@@ -23,12 +23,6 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
-<%
-String url = "https://www.du.ac.kr/submenu.do?menuUrl=I9D4yBgHJGlG1TUOf%2fpDHQ%3d%3d&";
-String className = "table-type01";
-Document doc = Jsoup.connect(url).get();
-Elements e = doc.select("."+className);
-%>
 <a href='#'>게시판 이동</a><br>
 <c:if test="${no==0||no==null }">
 <a href="loginForm">로그인</a></c:if>
@@ -36,6 +30,17 @@ Elements e = doc.select("."+className);
 <c:if test="${no!=0&&no!=null }">
 <a href="logout">로그아웃</a><br>
 <a href="myPage">마이페이지</a></c:if><br>
-<%=e %>
+오늘의 식단
+<c:forEach var="day" items="${week}"> 
+<table style="border: 1px solid black;">
+		<c:forEach var="food" items="${day}"> 
+		<tr>
+			<td>
+				${food }
+			</td>
+		</tr>
+		</c:forEach>
+</table>
+</c:forEach>
 </body>
 </html>
