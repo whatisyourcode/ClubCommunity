@@ -1,4 +1,4 @@
-package db;
+package mybatis.sql;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
+import db.AccountDto;
 
 @Mapper
 public interface AccountMapper {

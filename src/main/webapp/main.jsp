@@ -31,7 +31,14 @@
 <a href="logout">로그아웃</a><br>
 <a href="myPage">마이페이지</a></c:if><br>
 오늘의 식단
-<c:forEach var="day" items="${week}"> 
+<div>
+<c:choose>
+<c:when test="${dayIndex == 1 }">화요일</c:when>
+<c:when test="${dayIndex == 2 }">수요일</c:when>
+<c:when test="${dayIndex == 3 }">목요일</c:when>
+<c:when test="${dayIndex == 4 }">금요일</c:when>
+<c:otherwise>월요일</c:otherwise>
+</c:choose>
 <table style="border: 1px solid black;">
 		<c:forEach var="food" items="${day}"> 
 		<tr>
@@ -41,6 +48,9 @@
 		</tr>
 		</c:forEach>
 </table>
-</c:forEach>
+<button id="prev" onclick="location.href='main.jsp'">prev</button>
+<button id="next" onclick="location.href='main.jsp'">next</button>
+</div>
+<script src="./main.js"></script>
 </body>
 </html>

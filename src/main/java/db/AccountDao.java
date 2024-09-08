@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import mybatis.SqlMapConfig;
+import mybatis.sql.AccountMapper;
 
 public class AccountDao {
 	private SqlSession session;
